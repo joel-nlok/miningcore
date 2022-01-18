@@ -80,15 +80,5 @@ namespace Miningcore.Tests.Persistence.Postgres.Repositories
         {
             throw new NotImplementedException();
         }
-
-        public Task<WorkerPerformanceStatsContainer[]> GetMinerPerformanceBetweenMinutelyAsync(IDbConnection con, string poolId, string miner, DateTime start, DateTime end)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<WorkerPerformanceStatsContainer[]> GetMinerPerformanceBetweenThreeMinutelyAsync(IDbConnection con, string poolId, string miner, DateTime start, DateTime end)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

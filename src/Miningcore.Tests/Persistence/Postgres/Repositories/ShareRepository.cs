@@ -117,25 +117,5 @@ namespace Miningcore.Tests.Persistence.Postgres.Repositories
         {
             throw new NotImplementedException();
         }
-
-        public Task<long> CountSharesByMinerAsync(IDbConnection con, IDbTransaction tx, string poolId, string miner)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task DeleteSharesByMinerAsync(IDbConnection con, IDbTransaction tx, string poolId, string miner)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<KeyValuePair<string, double>[]> GetAccumulatedUserAgentShareDifficultyBetweenCreatedAsync(IDbConnection con, string poolId, DateTime start, DateTime end, bool byVersion = false)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<string[]> GetRecentyUsedIpAddresses(IDbConnection con, IDbTransaction tx, string poolId, string miner)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
