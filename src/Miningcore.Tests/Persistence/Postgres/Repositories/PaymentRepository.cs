@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -32,12 +33,37 @@ namespace Miningcore.Tests.Persistence.Postgres.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<PoolState> GetPoolState(IDbConnection con, string poolId)
+        //public Task<PoolState> GetPoolState(IDbConnection con, string poolId)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public Task SetPoolState(IDbConnection con, PoolState state)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        public Task BatchInsertAsync(IDbConnection con, IDbTransaction tx, IEnumerable<Payment> shares)
         {
             throw new NotImplementedException();
         }
 
-        public Task SetPoolState(IDbConnection con, PoolState state)
+        public Task<BalanceChange[]> PageBalanceChangesAsync(IDbConnection con, string poolId, string address, int page, int pageSize)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<uint> GetPaymentsCountAsync(IDbConnection con, string poolId, string address = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<uint> GetMinerPaymentsByDayCountAsync(IDbConnection con, string poolId, string address)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<uint> GetBalanceChangesCountAsync(IDbConnection con, string poolId, string address = null)
         {
             throw new NotImplementedException();
         }

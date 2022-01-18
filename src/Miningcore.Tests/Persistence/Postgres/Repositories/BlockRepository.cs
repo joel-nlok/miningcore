@@ -55,5 +55,15 @@ namespace Miningcore.Tests.Persistence.Postgres.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public Task<uint> GetPoolBlockCountAsync(IDbConnection con, string poolId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<DateTime?> GetLastPoolBlockTimeAsync(IDbConnection con, string poolId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
