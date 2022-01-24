@@ -31,7 +31,7 @@ public class ShareRepository : IShareRepository
         var pgCon = (NpgsqlConnection) con;
 
         const string query = @"COPY shares (poolid, blockheight, difficulty,
-            networkdifficulty, miner, worker, useragent, ipaddress, source, created) FROM STDIN (FORMAT BINARY)";
+            networkdifficulty, miner, worker, useragent, ipaddress, source, created, accepted) FROM STDIN (FORMAT BINARY)";
 
         await using(var writer = await pgCon.BeginBinaryImportAsync(query))
         {
@@ -49,6 +49,7 @@ public class ShareRepository : IShareRepository
                 await writer.WriteAsync(share.IpAddress);
                 await writer.WriteAsync(share.Source);
                 await writer.WriteAsync(share.Created, NpgsqlDbType.TimestampTz);
+                await writer.WriteAsync(DateTime.UtcNow, NpgsqlDbType.Timestamp);
             }
 
             await writer.CompleteAsync();

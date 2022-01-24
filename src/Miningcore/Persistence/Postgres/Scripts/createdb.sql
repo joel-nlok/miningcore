@@ -120,3 +120,7 @@ CREATE TABLE minerstats
 CREATE INDEX IDX_MINERSTATS_POOL_CREATED on minerstats(poolid, created);
 CREATE INDEX IDX_MINERSTATS_POOL_MINER_CREATED on minerstats(poolid, miner, created);
 CREATE INDEX IDX_MINERSTATS_POOL_MINER_WORKER_CREATED_HASHRATE on minerstats(poolid,miner,worker,created desc,hashrate);
+
+CREATE TABLE shares_eth1 PARTITION OF shares FOR VALUES IN ('eth1');
+
+CREATE TABLE shares_xmr1 PARTITION OF shares FOR VALUES IN ('xmr1');
