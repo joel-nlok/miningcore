@@ -11,7 +11,7 @@ trigger:
 pr: none
 
 pool:
-  name: mue1-ncrypto-int-ado-vm-ubuntu
+  name: NortonCrypto
 
 variables:
   buildConfiguration: 'Release'
@@ -26,7 +26,7 @@ steps:
   displayName: Pull secrets
   inputs:
     azureSubscription: 'NonProd App SP'
-    KeyVaultName: 'mue1-ncrypto-dev-kv'
+    KeyVaultName: 'mue1-ncrypto-dev1-kv'
     SecretsFilter: '*'
     RunAsPreJob: false
 - task: Bash@3
@@ -42,13 +42,14 @@ steps:
     PERSISTENCE_COSMOS_ENDPOINTURL: $(persistence-cosmos-endpointUrl)
     PERSISTENCE_COSMOS_AUTHORIZATIONKEY: $(persistence-cosmos-authorizationKey)
     PERSISTENCE_COSMOS_DATABASEID: $(persistence-cosmos-databaseId)
-#- task: DotNetCoreCLI@2
-#  displayName: Run tests
-#  inputs:
-#    command: 'test'
-#    arguments: '--no-build --filter "FullyQualifiedName~PayoutTests" ./Miningcore.Integration.Tests.dll'
-#    testRunTitle: 'NCrypto_Pool'
-#    workingDirectory: '$(Build.ArtifactStagingDirectory)'
+    POOLS_DAEMONS_HOST: $(pools-daemons-host)
+- task: DotNetCoreCLI@2
+  displayName: Run tests
+  inputs:
+    command: 'test'
+    arguments: '--no-build --filter "FullyQualifiedName~PayoutTests" ./Miningcore.Integration.Tests.dll'
+    testRunTitle: 'NCrypto_Pool'
+    workingDirectory: '$(Build.ArtifactStagingDirectory)'
 - upload: $(Build.ArtifactStagingDirectory)
   displayName: 'Publish package'
   artifact: drop

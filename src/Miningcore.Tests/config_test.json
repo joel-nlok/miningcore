@@ -1,15 +1,15 @@
 {
     "logging": {
         "level": "info",
-        "enableConsoleLog": false,
-        "enableConsoleColors": false,
+        "enableConsoleLog": true,
+        "enableConsoleColors": true,
         "logFile": "core.log",
         "apiLogFile": "api.log",
         "logBaseDirectory": "logs/",
         "perPoolLogFile": false
     },
     "banning": {
-        "manager": "integrated",
+        "manager": "Integrated",
         "banOnJunkReceive": true,
         "banOnInvalidShares": false
     },
@@ -132,7 +132,8 @@
             "daemons": [
                 {
                     "host": "127.0.0.1",
-                    "port": 8545
+                    "port": 8545,
+                    "portWS": 8546
                 }
             ],
             "etherscan": {
@@ -144,7 +145,7 @@
                 "enabled": true,
                 "balanceUpdateEnabled": true,
                 "payoutEnabled": true,
-                "minimumPayment": "0.000044",
+                "minimumPayment": 0.000044,
                 "minimumPaymentToPaymentId": 5.0,
                 "payoutScheme": "PPS",
                 "maxBlockFrequency": 43200,
